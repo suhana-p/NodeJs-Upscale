@@ -1,0 +1,46 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Post Request Example</title>
+</head>
+<body>
+  <h1>Post Request Example</h1>
+  <form id="postForm">
+    <label for="title">Book Title:</label>
+    <input type="text" id="title" name="title" required>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="response"></div>
+
+  <script>
+    const form = document.getElementById('postForm');
+    const responseDiv = document.getElementById('response');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const author = document.getElementById('author').value;
+
+      try {
+        const response = await fetch('/books', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ title, author }),
+        });
+
+        const data = await response.json();
+        responseDiv.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        console.error('Error:', error);
+        responseDiv.textContent = 'Error occurred. Please check the console for details.';
+      }
+    });
+  </script>
+</body>
+</html>

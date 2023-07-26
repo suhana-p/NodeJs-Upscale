@@ -12,4 +12,4 @@ server.listen(PORT, () => {
 
 // note- 
 // run in terminal : node server.js
-//The server will start, and you can access it by visiting http://localhost:3000 in your web browser.
+// The server will start, and you can access it by visiting http://localhost:3000 in your web browser.

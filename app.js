@@ -21,4 +21,4 @@ server.listen(PORT, () => {
 
 // note- 
 // run in terminal : node app.js
-//you can access the routes by visiting http://localhost:3000/home and http://localhost:3000/about in your browser. 
+// access the routes by visiting http://localhost:3000/home and http://localhost:3000/about in your browser. 
